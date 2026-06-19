@@ -1,37 +1,28 @@
-const greet = (name: string): string => `Hello, ${name}!`;
-console.log(greet('World'));
-
-// any  ---> dont check type
-
-let value: any = 10;
-value = "varun"
-
-console.log(value)
-
-let value1: unknown = 10;
-console.log(typeof value1)
+//1. Reverse of a string.....
+function reverseWord(str:string){
 
 
-// any disables type checking, while unknown requires type checking before using the value
+    let res = ""
+    for(let i=str.length-1;i>=0;i-- ){
+        res+=str[i];
+    }
 
-type Status = "success" | "error" | "pending";
+    return res;
 
-function handleStatus(status: Status) {
-   switch (status) {
-        case "success":
-            return "Done";
-
-        case "error":
-            return "Failed";
-
-        case "pending":
-            return "Pending";
-
-        default:
-            var x : never = status;
-            return x;
-   }
 }
 
-handleStatus("pending");
+//2. Highest of Array.....
+function highestNumberInArray(arr:number[]):number{
 
+
+    let high=0;
+    for(let i=0;i<=arr.length-1;i++){
+        if(arr[i]>high){
+            high = arr[i]
+        }
+    }
+    return high;
+}
+
+console.log(reverseWord("array"));
+console.log(highestNumberInArray([1,2,6,5,3]))
