@@ -99,3 +99,16 @@ console.log(smallestOfArray([9,2,4,6,]))
 // console.log(reverseWord("array"));
 // console.log(highestNumberInArray([1,2,6,5,3]))
 // console.log(secondHighArray([1,2,6,5,3]))
+
+
+function factorialOfNumber(num:number):Number{
+    let fact = 1;
+
+    while(num>=1){
+        fact = fact * num;
+        num--;
+    }
+    return fact
+}
+
+console.log(factorialOfNumber(5));
