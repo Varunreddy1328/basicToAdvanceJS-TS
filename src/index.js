@@ -77,6 +77,8 @@ console.log(smallestOfArray([9, 2, 4, 6,]));
 // console.log(reverseWord("array"));
 // console.log(highestNumberInArray([1,2,6,5,3]))
 // console.log(secondHighArray([1,2,6,5,3]))
+console.log(factorialOfNumber(5));
+console.log(printHighToSmall(5));
 function factorialOfNumber(num) {
     var fact = 1;
     while (num >= 1) {
@@ -85,4 +87,69 @@ function factorialOfNumber(num) {
     }
     return fact;
 }
-console.log(factorialOfNumber(5));
+function printHighToSmall(n) {
+    if (n === 0) {
+        return;
+    }
+    console.log(n);
+    printHighToSmall(n - 1);
+    console.log(n);
+}
+// practice questions 
+// extract letters,special char and numbers
+function extractSym(str) {
+    var specialChar = "";
+    var num = "";
+    var letters = "";
+    for (var i = 0; i < str.length; i++) {
+        if ((str[i] >= 'a' && str[i] <= 'z') || str[i] >= 'A' && str[i] <= 'Z') {
+            letters += str[i];
+        }
+        else if (str[i] >= '0' && str[i] <= '9') {
+            num += str[i];
+        }
+        else {
+            specialChar += str[i];
+        }
+    }
+    console.log(letters);
+    console.log(num);
+    console.log(specialChar);
+}
+extractSym("Varun@123#");
+// remove duplicates in string
+function duplicatesCheck(str) {
+    var result = "";
+    for (var i = 0; i < str.length; i++) {
+        if (!result.includes(str[i])) {
+            result += str[i];
+        }
+    }
+    return result;
+}
+console.log(duplicatesCheck("sndsndfsdfjnrwsafn"));
+// if there is no includes () method then how to do this 
+reverseOfWordAndSentence("I love Coding");
+function reverseOfWordAndSentence(str) {
+    var words = [];
+    var result = [];
+    var sentence = [];
+    words = str.split(" ");
+    var final = "";
+    for (var i = 0; i < words.length; i++) {
+        result[i] = reverseWord(words[i]);
+    }
+    for (var i = result.length - 1; i >= 0; i--) {
+        final = final + result[i] + " ";
+    }
+    console.log(final);
+    function reverseWord(stri) {
+        var revWord = stri.split("");
+        for (var i = 0, j = revWord.length - 1; i < j; i++, j--) {
+            var temp = revWord[i];
+            revWord[i] = revWord[j];
+            revWord[j] = temp;
+        }
+        return revWord.join('');
+    }
+}

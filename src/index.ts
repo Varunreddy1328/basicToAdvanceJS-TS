@@ -99,6 +99,8 @@ console.log(smallestOfArray([9,2,4,6,]))
 // console.log(reverseWord("array"));
 // console.log(highestNumberInArray([1,2,6,5,3]))
 // console.log(secondHighArray([1,2,6,5,3]))
+console.log(factorialOfNumber(5));
+console.log(printHighToSmall(5));
 
 
 function factorialOfNumber(num:number):Number{
@@ -111,4 +113,100 @@ function factorialOfNumber(num:number):Number{
     return fact
 }
 
-console.log(factorialOfNumber(5));
+function printHighToSmall(n:number):void{
+
+    if(n===0){
+        return;
+    }
+
+    console.log(n);
+    printHighToSmall(n-1);
+    console.log(n);
+}
+
+
+
+
+
+
+// practice questions 
+
+// extract letters,special char and numbers
+
+function extractSym(str:string){
+
+    let specialChar = ""
+    let num = ""
+    let letters = ""
+    for(let i=0;i<str.length;i++){
+
+        if((str[i]>='a' && str[i]<='z') || str[i]>='A' && str[i]<='Z'){
+            letters += str[i];
+        }
+        else if(str[i]>='0' && str[i]<='9'){
+            num += str[i];
+        }
+        else{
+            specialChar += str[i];
+        }
+    }
+    console.log(letters);
+    console.log(num);
+    console.log(specialChar)
+}
+
+
+extractSym("Varun@123#");
+
+// remove duplicates in string
+
+function duplicatesCheck(str:string):string{
+
+    let result = ""
+    for(let i=0;i<str.length;i++){
+        if(!result.includes(str[i])){
+            result +=str[i]
+        }
+    }
+    return result;
+}
+
+console.log(duplicatesCheck("sndsndfsdfjnrwsafn"))
+
+
+// if there is no includes () method then how to do this 
+
+
+reverseOfWordAndSentence("I love Coding")
+
+function reverseOfWordAndSentence(str:string){
+
+    let words = []
+    let result = []
+    let sentence = []
+    words = str.split(" ")
+     let final = "";
+
+    for(let i=0;i<words.length;i++){
+        result[i] = reverseWord(words[i]);
+    }
+
+   for(let i=result.length-1;i>=0;i--){
+     
+      final = final + result[i] + " "
+
+   }
+   console.log(final)
+
+    function reverseWord(stri:string){
+        let revWord = stri.split("");
+        for(let i=0,j=revWord.length-1;i<j;i++,j--){
+
+            let temp = revWord[i];
+            revWord[i] = revWord[j];
+            revWord[j] = temp
+
+        }
+        return revWord.join('');
+    }
+}
